@@ -36,9 +36,11 @@ public class Employee
         salary_ = salary_ * (1 + byPercent / 100);
     }
 
-    public void showEmployee()
+    @Override
+    public String toString()
     {
-        System.out.println("This is "+ name_ +",he/she joins company at " + hireDate_+" and has salary:" + salary_);
+        String info = name_ + " join company at " + hireDate_.toString()+" and owm salary " + salary_;
+        return info;
     }
     private String name_;
     private double salary_;
