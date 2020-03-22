@@ -1,10 +1,11 @@
+package com.jasoyang.session0;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 
 
 public class CalendarTest
 {
-    public static void main(String[] args)
+    public static void Show()
     {
         LocalDate date = LocalDate.now();
         int month = date.getMonthValue();

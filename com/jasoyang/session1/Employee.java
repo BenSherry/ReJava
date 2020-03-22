@@ -1,6 +1,7 @@
+package com.jasoyang.session1;
 import java.time.LocalDate;
 
-class Employee
+public class Employee
 {
     public static void main(String[] Args)
     {
