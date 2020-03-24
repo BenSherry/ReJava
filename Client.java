@@ -11,9 +11,10 @@ import java.util.ArrayList;
 import com.jasoyang.session1.*;
 import com.jasoyang.session0.*;
 import com.jasoyang.session2.*;
+import com.jasoyang.session3.*;
 
 class Client {
-    public static void main(String[] args) throws FileNotFoundException, IOException {
+    public static void main(String[] args) throws FileNotFoundException, IOException, ClassNotFoundException {
         LocalDate today = LocalDate.now();
         LocalDate seasonAgo = today.minusDays(90);
         ArrayList<Employee> staff = new ArrayList<>();
@@ -28,6 +29,8 @@ class Client {
         ReadData(bd);
         bd.close();
         CalendarTest.Show();
+        ReflectionTest ref = new ReflectionTest("com.jasoyang.session1.Employee");
+        ref.ShowCLassINfo();
     }
 
     public static void WriteData(ArrayList<Employee> staff, PrintWriter out)
