@@ -12,6 +12,7 @@ import com.jasoyang.session1.*;
 import com.jasoyang.session0.*;
 import com.jasoyang.session2.*;
 import com.jasoyang.session3.*;
+import com.jasoyang.session4.*;
 
 class Client {
     public static void main(String[] args) throws FileNotFoundException, IOException, ClassNotFoundException {
@@ -31,6 +32,10 @@ class Client {
         CalendarTest.Show();
         ReflectionTest ref = new ReflectionTest("com.jasoyang.session1.Employee");
         ref.ShowCLassINfo();
+        MyListener listener = new ListenerA();
+        MyMonitor monitor = new MyMonitor();
+        monitor.registerListener(listener);
+        monitor.handle();
     }
 
     public static void WriteData(ArrayList<Employee> staff, PrintWriter out)
