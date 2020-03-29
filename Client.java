@@ -7,6 +7,8 @@ import java.io.PrintWriter;
 import java.io.BufferedReader;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Comparator;
 
 import com.jasoyang.session1.*;
 import com.jasoyang.session0.*;
@@ -23,6 +25,15 @@ class Client {
         staff.add(new Employee("Tom", 900, today));
         staff.add(new Manager("Jimmy", 900, today, 2000));
         staff.get(0).raiseSalary(80);
+        Comparator<Employee> com = (Employee x, Employee y) -> { 
+            // in lambda java, you really don't need think how to
+            // capture a variable like c++ [](){};just use it;
+            // you can use 'm' here but can't change it here.
+            return x.getName().compareToIgnoreCase(y.getName());
+        };
+        // in c++ way, just like
+        // std::sort(array.begin(), array.end(),[](){});
+        staff.sort(com);
         FileWriter fileName = new FileWriter("employee.dat", true);
         PrintWriter out = new PrintWriter(fileName);
         WriteData(staff, out);
