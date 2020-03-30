@@ -7,7 +7,6 @@ import java.io.PrintWriter;
 import java.io.BufferedReader;
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Comparator;
 
 import com.jasoyang.session1.*;
@@ -15,6 +14,7 @@ import com.jasoyang.session0.*;
 import com.jasoyang.session2.*;
 import com.jasoyang.session3.*;
 import com.jasoyang.session4.*;
+import com.jasoyang.session6.MyStaticProxy.*;
 
 class Client {
     public static void main(String[] args) throws FileNotFoundException, IOException, ClassNotFoundException {
@@ -47,6 +47,11 @@ class Client {
         MyMonitor monitor = new MyMonitor();
         monitor.registerListener(listener);
         monitor.handle();
+        AdminService adminService = new AdminServiceImpl();
+        AdminServiceProxy proxy = new AdminServiceProxy(adminService);
+        proxy.update();
+        System.out.println("=============================");
+        proxy.find();
     }
 
     public static void WriteData(ArrayList<Employee> staff, PrintWriter out)
