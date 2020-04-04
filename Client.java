@@ -8,6 +8,7 @@ import java.io.BufferedReader;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.concurrent.Semaphore;
 
 import com.jasoyang.session1.*;
 import com.jasoyang.session0.*;
@@ -15,6 +16,7 @@ import com.jasoyang.session2.*;
 import com.jasoyang.session3.*;
 import com.jasoyang.session4.*;
 import com.jasoyang.session6.MyStaticProxy.*;
+import com.jasoyang.session7.*;
 
 class Client {
     public static void main(String[] args) throws FileNotFoundException, IOException, ClassNotFoundException {
@@ -52,6 +54,9 @@ class Client {
         proxy.update();
         System.out.println("=============================");
         proxy.find();
+        String[] sentence = {"hello", "This", "is", "my","son"};
+        Pair<String> pair = MinMax(sentence);
+        System.out.println(pair.toString());
     }
 
     public static void WriteData(ArrayList<Employee> staff, PrintWriter out)
@@ -71,5 +76,28 @@ class Client {
         {
             System.out.println(sentence);
         }
+    }
+
+    public static Pair<String> MinMax(String[] sentences)
+    {
+        if (sentences.length <= 0 || sentences == null)
+        {
+            return null;
+        }
+        String min = sentences[0];
+        String max = sentences[0];
+        for(String word:sentences)
+        {
+            if (min.compareTo(word) > 0)
+            {
+                min = word;
+            }
+
+            if (max.compareTo(word) < 0)
+            {
+                max = word;
+            }
+        }
+        return new Pair<String>(min,max);
     }
 }
