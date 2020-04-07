@@ -1,6 +1,8 @@
 package com.jasoyang.session7;
 
-public class Pair<T> 
+import java.io.Serializable;
+
+public class Pair<T extends Comparable & Serializable> 
 {
     private T first_;
     private T second_;
